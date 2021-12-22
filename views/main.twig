@@ -1,0 +1,47 @@
+{% extends "__layout.twig" %}
+{% block content %}
+<h1>Главная страница</h1>
+
+<ul class="list-group">
+  <li class="list-group-item">
+
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="/brit">
+          <button type="button" class="btn btn-primary">Британская кошка</button>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/brit/image">
+          <button type="button" class="btn btn-link">Картинка</button>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/brit/info">
+          <button type="button" class="btn btn-link">Описание</button>
+        </a>
+      </li>
+    </ul>
+  </li>
+  <li class="list-group-item">
+
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link " href="/scot">
+          <button type="button" class="btn btn-primary">Шотландская кошка</button>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link " href="/scot/image">
+          <button type="button" class="btn btn-link">Картинка</button>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  href="/scot/info">
+          <button type="button" class="btn btn-link">Описание</button>
+        </a>
+      </li>
+    </ul>
+  </li>
+</ul>
+{% endblock %}
