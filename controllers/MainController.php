@@ -1,5 +1,5 @@
 <?php
-require_once "TwigBaseController.php"; 
+//require_once "TwigBaseController.php"; 
 
 class MainController extends TwigBaseController {
     public $template = "main.twig";
@@ -9,9 +9,9 @@ class MainController extends TwigBaseController {
     {
         $context = parent::getContext();
         
-        $query = $this->pdo->query("SELECT * FROM space_objects");
+        $query = $this->pdo->query("SELECT * FROM cat_breeds");
         
-        $context['space_objects'] = $query->fetchAll();
+        $context['cat_breeds'] = $query->fetchAll();
 
         return $context;
     }

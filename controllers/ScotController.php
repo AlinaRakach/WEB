@@ -1,5 +1,5 @@
 <?php
-require_once "TwigBaseController.php";
+//require_once "TwigBaseController.php";
 
 class ScotController extends TwigBaseController{
     public $title = "Шотландская кошка";

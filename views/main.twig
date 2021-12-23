@@ -1,8 +1,12 @@
 {% extends "__layout.twig" %}
 {% block content %}
 
+{% for object in cat_breeds %}
+    Название: {{ object.title }} <br>  
+{% endfor %}
+
 <pre>
-  {{ dump(space_objects) }}
+  {{ dump(cat_breeds) }} 
   </pre>
 
 <h1>Главная страница</h1>

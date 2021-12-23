@@ -1,6 +1,7 @@
 <?php
 
 require_once "../vendor/autoload.php";
+require_once "../framework/autoload.php";
 require_once "../controllers/MainController.php";
 require_once "../controllers/BritController.php";
 require_once "../controllers/BritImageController.php";
@@ -29,21 +30,8 @@ $controller = new Controller404($twig);
 $pdo = new PDO("mysql:host=localhost;dbname=cat_breeds;charset=utf8", "root", "");
 
 if ($url == "/") {
-    $controller = new MainController($twig);
-} elseif (preg_match("#/brit#", $url)) {
-    $controller = new BritController($twig);
-    if (preg_match("#/brit/image#", $url)) {
-        $controller = new BritImageController($twig);
-    } else if (preg_match("#/brit/info#", $url)) {
-        $controller = new BritInfoController($twig);
-    }
-} elseif (preg_match("#/scot#", $url)) {
-    $controller = new ScotController($twig);
-    if (preg_match("#/scot/image#", $url)) {
-        $controller = new ScotImageController($twig);
-    } else if (preg_match("#/scot/info#", $url)) {
-        $controller = new ScotInfoController($twig);
-    }
+    
+
 }
 
 
