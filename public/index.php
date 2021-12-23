@@ -30,9 +30,8 @@ $controller = new Controller404($twig);
 $pdo = new PDO("mysql:host=localhost;dbname=cat_breeds;charset=utf8", "root", "");
 
 if ($url == "/") {
-    
-
-}
+    $controller = new MainController($twig);
+} 
 
 
 if ($controller) {
