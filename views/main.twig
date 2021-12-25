@@ -1,56 +1,47 @@
 {% extends "__layout.twig" %}
+{% import "macro.html.twig" as forms %}
+
 {% block content %}
+<div class="row">
+    {% for object in cat_breeds %}
 
-{% for object in cat_breeds %}
-    Название: {{ object.title }} <br>  
-{% endfor %}
+    <div class="col-auto border mb-3 mt-3 me-3">
+        <div class="mb-1 mt-3">
+            <img src="{{ object.image }}" style="width: 200px;">
+        </div>
 
+        <div class="d-grid nav-link">
+            <a href="/cat-breeds/{{ object.id }}" class="btn btn-dark" role="button" data-bs-toggle="button">{{ object.title }}</a>
+        </div>
+
+        <div class="nav-link">
+            <a href="/cat-breeds/{{ object.id }}" class="btn btn-light" role="button" data-bs-toggle="button">Картинка</a>
+            <a href="/cat-breeds/{{ object.id }}" class="btn btn-light" role="button" data-bs-toggle="button">Описание</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+<!-- Название: {{ object.title }} <br>  
 <pre>
-  {{ dump(cat_breeds) }} 
-  </pre>
-
-<h1>Главная страница</h1>
+    {{ dump(cat_breeds) }} 
+</pre>
 
 <ul class="list-group">
-  <li class="list-group-item">
+    <li class="list-group-item">
+        <a> {{ forms.btn("Британская кошка", "/brit", true, "warning") }} </a>
+        <a> {{ forms.btn("Картинка", "/brit/image", true, "warning") }} </a>
+        <a> {{ forms.btn("Описание", "/brit/info", true, "warning") }} </a>
+    </li>
 
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a class="nav-link" href="/brit">
-          <button type="button" class="btn btn-primary">Британская кошка</button>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/brit/image">
-          <button type="button" class="btn btn-link">Картинка</button>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/brit/info">
-          <button type="button" class="btn btn-link">Описание</button>
-        </a>
-      </li>
-    </ul>
-  </li>
-  <li class="list-group-item">
-
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a class="nav-link " href="/scot">
-          <button type="button" class="btn btn-primary">Шотландская кошка</button>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link " href="/scot/image">
-          <button type="button" class="btn btn-link">Картинка</button>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link"  href="/scot/info">
-          <button type="button" class="btn btn-link">Описание</button>
-        </a>
-      </li>
-    </ul>
-  </li>
+    <li class="list-group-item">
+        <a> {{ forms.btn("Шотландская кошка", "/scot", true, "warning") }} </a>
+        <a> {{ forms.btn("Картинка", "/scot/image", true, "warning") }} </a>
+        <a> {{ forms.btn("Описание", "/scot/info", true, "warning") }} </a>
+    </li>
 </ul>
+ -->
+
 {% endblock %}

@@ -1,14 +1,16 @@
 <?php
-//require_once "TwigBaseController.php";
+require_once "BaseBreedsTwigController.php";
 
-class ScotController extends TwigBaseController{
+class ScotController extends BaseBreedsTwigController{
     public $title = "Шотландская кошка";
-    public $template = "scot.twig";
+    public $template = "__object.twig";
 
     public function getContext(): array
     {
         $context = parent::getContext();
 
+        $context['image_url'] = "/scot/image";
+        $context['info_url'] = "/scot/info";
 
         return $context;
     }

@@ -8,7 +8,7 @@ class BritInfoController extends BritController {
     {
         $context = parent::getContext(); 
 
-        
+        $context['is_info']= true;
 
         return $context;
     }

@@ -1,0 +1,30 @@
+{% extends "__layout.twig" %}
+{% import "macro.html.twig" as forms %}
+
+{% block content %}
+
+<div class="col-auto mb-3 mt-3 me-3">
+<li class="list-group-item">
+    <h5>
+        {% block objectContent %}
+        Выберите, какую информацию хотите посмотреть
+        {% endblock %}
+    </h5>
+
+        <div class="nav-link">
+            <a href="/agents-object/{{ object.id }}/image" class="btn btn-info" role="button" data-bs-toggle="button">Картинка</a>
+            <a href="/agents-object/{{ object.id }}/info" class="btn btn-info" role="button" data-bs-toggle="button">Описание</a>
+        </div>
+    
+    <!-- <ul class="nav nav-pills">
+        <li class="nav-item">
+            {{ forms.btn("Картинка", object.image , true, "warning") }}
+        </li>
+
+        <li class="nav-item">
+            {{ forms.btn("Описание", info_url, true, "warning") }}
+        </li>
+    </ul> -->
+</li> 
+</div>
+{% endblock %}

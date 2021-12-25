@@ -1,7 +1,7 @@
 <?php
-//require_once "TwigBaseController.php"; 
+require_once "BaseBreedsTwigController.php";
 
-class MainController extends TwigBaseController {
+class MainController extends BaseBreedsTwigController {
     public $template = "main.twig";
     public $title = "Главная";
 

@@ -1,13 +1,13 @@
 <?php
-//require_once "TwigBaseController.php";
+require_once "BaseBreedsTwigController.php";
 
-class Controller404 extends TwigBaseController {
-public $template = "404.twig";
-public $title = "Страница не найдена";
-
-public function get()
+class Controller404 extends BaseBreedsTwigController
 {
-http_response_code(404); 
-parent::get(); 
-}
+    public $template = "404.twig";
+    public $title = "Страница не найдена";
+    public function get()
+    {
+        http_response_code(404);
+        parent::get();
+    }
 }

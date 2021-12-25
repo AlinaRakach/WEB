@@ -10,31 +10,27 @@ require_once "../controllers/ScotController.php";
 require_once "../controllers/ScotImageController.php";
 require_once "../controllers/ScotInfoController.php";
 require_once "../controllers/Controller404.php";
-
-$loader = new \Twig\Loader\FilesystemLoader('../views');
-
-$twig = new \Twig\Environment($loader);
-
-$url = $_SERVER["REQUEST_URI"];
+require_once "../controllers/InfoController.php";
+require_once "../controllers/ImageController.php";
+require_once "../controllers/BaseBreedsTwigController.php";
+require_once "../controllers/ObjectController.php";
 
 $loader = new \Twig\Loader\FilesystemLoader('../views');
 $twig = new \Twig\Environment($loader, [
-    "debug" => true
+    "debug" => true 
 ]);
 $twig->addExtension(new \Twig\Extension\DebugExtension());
 
-$context = [];
-
-$controller = new Controller404($twig);
-
 $pdo = new PDO("mysql:host=localhost;dbname=cat_breeds;charset=utf8", "root", "");
 
-if ($url == "/") {
-    $controller = new MainController($twig);
-} 
+$router = new Router($twig, $pdo);
 
+$router->add("/", MainController::class);
+$router->add("/Brit", BritController::class);
+$router->add("/cat-breeds/(?P<id>\d+)", ObjectController::class); 
+$router->add("/cat-breeds/(?P<id>\d+)/image", ImageController::class); 
+$router->add("/cat-breeds/(?P<id>\d+)/info", InfoController::class); 
 
-if ($controller) {
-    $controller->setPDO($pdo);
-    $controller->get();
-}
+$router->get_or_default(Controller404::class);
+
+?>
